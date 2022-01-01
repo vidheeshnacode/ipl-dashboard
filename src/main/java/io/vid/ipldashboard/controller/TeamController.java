@@ -24,6 +24,12 @@ public class TeamController {
         this.matchRepository = matchRepository;
     }
 
+
+    @GetMapping("/team")
+    public Iterable<Team> getAllTeam(){
+        return this.teamRepository.findAll();
+    }
+
     // returns team info that contains team name, no of matches, wins & loss, list of last n matches
     @GetMapping("/team/{teamName}")
     public Team getTeam(@PathVariable String teamName){
